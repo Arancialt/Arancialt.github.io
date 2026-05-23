@@ -1,8 +1,14 @@
 /* ==========================================================================
+   0. IMPORTAZIONE FONT DA GOOGLE FONTS
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap');
+
+/* ==========================================================================
    1. IMPOSTAZIONI GENERALI E RESET
    ========================================================================== */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* Impostato JetBrains Mono come font UNICO per tutto il sito */
+    font-family: 'JetBrains Mono', monospace;
     background-color: #f9f9f9;
     color: #000000; /* Testo generale del sito in NERO */
     margin: 0;
@@ -23,7 +29,7 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: flex-start;  /* CORRETTO: Riporta l'immagine e la musica ad allinearsi in ALTO */
+    align-items: flex-start;  
     gap: 50px;
     width: 100%;
 }
@@ -31,15 +37,14 @@ body {
 .colonna-sinistra {
     flex: 1.1;
     min-width: 0;
-    text-align: center;       /* Centra perfettamente il titolo e l'immagine nella colonna */
+    text-align: center;       
 }
 
 .colonna-destra {
     flex: 0.9;
     min-width: 0;
     text-align: center;
-    /* TRUCCO: Questo spazio spinge in giù il box musica esattamente quanto il titolo spinge la foto! */
-    margin-top: 74px; 
+    margin-top: 74px; /* Allineamento millimetrico all'immagine */
 }
 
 /* ==========================================================================
@@ -49,15 +54,12 @@ body {
     font-size: 2.8rem;
     font-weight: 700;
     color: #000000;
-    text-align: center;       /* Centratura sopra l'immagine */
+    text-align: center;       
     margin-top: 0;
-    margin-bottom: 20px;      /* Spazio fisso tra il titolo e la foto sotto */
-    line-height: 1;           /* Mantiene l'altezza del testo compatta e prevedibile */
+    margin-bottom: 20px;      
+    line-height: 1;           
 }
 
-/* ==========================================================================
-   4. ELEMENTI DELLA COLONNA SINISTRA (IMMAGINE E SOCIAL)
-   ========================================================================== */
 /* ==========================================================================
    4. ELEMENTI DELLA COLONNA SINISTRA (IMMAGINE E SOCIAL)
    ========================================================================== */
@@ -75,32 +77,29 @@ body {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #000000; /* Linea di separazione in NERO */
-    text-align: left;              /* Allineati a sinistra sotto la foto */
-    font-family: monospace;        /* Opzionale: dà quel look da codice molto carino che c'è nella foto */
+    text-align: left;              
     color: #000000;                /* Colore delle virgole in NERO */
     font-size: 1.1rem;
-    line-height: 1.8;              /* Gestisce lo spazio se i bottoni vanno a capo */
+    line-height: 1.8;              
 }
 
-/* Pulsanti dei Social (Stile rettangolo grigio chiaro/bianco della foto) */
+/* Pulsanti dei Social (Stile immagine_4.png) */
 .social-links a {
     display: inline-block;
-    padding: 3px 8px;              /* Padding più stretto per farli sembrare piccoli blocchi */
-    background-color: #ffffff;     /* Colore grigio chiaro di sfondo come nell'immagine */
-    color: #000000;                /* Testo in NERO */
-    border: 1px solid #000000;     /* Bordino nero sottile e netto attorno al bottone */
-    text-decoration: none;         /* Rimuove la sottolineatura dei link */
+    padding: 3px 8px;              
+    background-color: #e0e0e0;     /* Sfondo grigio chiaro */
+    color: #000000;                
+    border: 1px solid #000000;     
+    text-decoration: none;         
     font-size: 1rem;
-    margin: 2px 0;                 /* Piccolo spazio verticale se vanno a capo */
+    margin: 2px 0;                 
     transition: background-color 0.2s ease;
 }
 
-/* Rimosso completamente il vecchio modificatore ::after con l'emoji */
-
 /* Effetto al passaggio del mouse */
 .social-links a:hover {
-    background-color: #ffffff;     /* Diventa bianco puro quando ci passi sopra */
-    color: #000000;                /* Il testo resta nero */
+    background-color: #ffffff;     /* Diventa bianco puro */
+    color: #000000;                
 }
 
 /* ==========================================================================
@@ -169,11 +168,11 @@ body {
     }
 
     .colonna-destra {
-        margin-top: 0; /* Azzera il trucco dell'allineamento quando si va in verticale */
+        margin-top: 0; 
     }
     
     .social-links {
-        text-align: center;     /* Centra i bottoni social su mobile */
+        text-align: center;     
     }
     
     .blog-image {
