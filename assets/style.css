@@ -75,3 +75,20 @@ h1 {
 .social-links a:hover {
     background-color: #ea9b0a; /* Diventa color oro */
 }
+
+.spotify-player {
+    margin: 40px auto; /* Aumentiamo leggermente lo spazio totale */
+    max-width: 500px;  
+    padding: 0 10px;   
+}
+
+/* Stile specifico per la descrizione della traccia preferita */
+.spotify-title {
+    font-size: 0.9rem;
+    color: #888; /* Un grigio leggero, coordinato con la descrizione dei social */
+    text-transform: uppercase; /* Trasforma il testo automaticamente in TUTTO MAIUSCOLO */
+    letter-spacing: 1px; /* Distanzia leggermente le lettere tra loro per un effetto più moderno */
+    margin-bottom: 10px; /* Spazio tra la scritta e il player di Spotify */
+    text-align: center; /* Centra la scritta rispetto al player */
+    font-weight: 600; /* Rende il testo leggermente più spesso (semi-bold) */
+}
