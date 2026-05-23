@@ -36,9 +36,7 @@ h1 {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #eee; /* Una riga sottile di separazione */
-    
-    /* 1. CENTRA IL CONTENUTO: Allinea al centro sia il testo che i bottoni */
-    text-align: center; 
+    text-align: center; /* Centra tutto il blocco dei social */
 }
 
 .social-links p {
@@ -49,39 +47,30 @@ h1 {
 
 .social-links a {
     display: inline-block;
+    position: relative;
     
-    /* 2. SEPARAZIONE: Aggiungiamo un po' di spazio a destra e sinistra di ogni bottone */
-    margin: 0 5px; 
+    /* Spazio a destra del bottone per fare posto all'emoji */
+    margin-right: 30px; 
     
     padding: 10px 20px;
     background-color: #fcfcfc; /* Sfondo bianco */
     color: #000000; /* Testo nero */
-    
-    /* 3. SQUADRATI: Impostiamo il raggio del bordo a 0 per eliminare le curve */
-    border-radius: 0px; 
-    
+    text-decoration: none; /* Rimuove la sottolineatura */
+    border-radius: 0px; /* Bottoni squadrati */
     font-size: 0.95rem;
     transition: background-color 0.3s ease; /* Effetto fluido al passaggio del mouse */
 }
 
-/* Rimuovi il vecchio .social-links a::after di prima e sostituiscilo con questo: */
-
-.social-links a:not(:last-child) {
-    position: relative;
-    /* Lasciamo un po' di spazio a destra del bottone per ospitare la virgola */
-    margin-right: 25px; 
-}
-
-/* Posizioniamo la virgola fuori dal bottone */
-.social-links a:not(:last-child)::after {
+/* Posizioniamo l'emoji fuori da OGNI bottone */
+.social-links a::after {
     content: "👾";
     position: absolute;
-    right: -15px; /* Sposta la virgola fuori dal rettangolo bianco */
+    right: -22px; /* Sposta l'emoji esattamente nello spazio vuoto a destra */
     top: 50%;
-    transform: translateY(-50%); /* Centra la virgola verticalmente */
-    color: #888; /* Colore grigio per non confonderla con il testo del bottone */
-    pointer-events: none; /* Impedisce alla virgola di essere cliccabile */
+    transform: translateY(-50%); /* Centra l'emoji verticalmente rispetto al bottone */
+    pointer-events: none; /* Rende l'emoji non cliccabile */
 }
+
 /* Cambia colore quando l'utente passa il mouse sopra il bottone */
 .social-links a:hover {
     background-color: #ea9b0a; /* Diventa color oro */
