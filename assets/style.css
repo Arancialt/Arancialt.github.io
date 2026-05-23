@@ -71,35 +71,15 @@ body {
     display: block;
 }
 
-/* Sezione Link Social */
+/* Sezione Link Social che ospita i bottoni 3D */
 .social-links {
     margin-top: 30px;
-    padding-top: 20px;
+    padding-top: 25px;
     border-top: 1px solid #000000; /* Linea di separazione in NERO */
     text-align: left;              
-    color: #000000;                /* Colore delle virgole e della barra | */
-    font-size: 1.1rem;
-    display: flex;                 /* Mette in linea i testi e il bottone 3D */
-    align-items: center;           /* Allinea verticalmente i link piatti e il bottone */
-    flex-wrap: wrap;               /* Evita problemi andando a capo su schermi piccoli */
-    gap: 6px;                      /* Distanza uniforme tra elementi e testo */
-}
-
-/* Pulsanti dei Social standard (instagram, github, spotify) */
-.social-links .social-link-standard {
-    display: inline-block;
-    padding: 3px 8px;              
-    background-color: #e0e0e0;     /* Sfondo grigio chiaro */
-    color: #000000;                
-    border: 1px solid #000000;     
-    text-decoration: none;         
-    font-size: 1rem;
-    transition: background-color 0.2s ease;
-}
-
-/* Effetto al passaggio del mouse sui social standard */
-.social-links .social-link-standard:hover {
-    background-color: #ffffff;     /* Diventa bianco puro */
+    display: flex;                 /* Affianca i bottoni uno dopo l'altro */
+    flex-wrap: wrap;               /* Li manda a capo automaticamente se lo schermo si restringe */
+    gap: 12px;                     /* Spazio vuoto uniforme tra un bottone 3D e l'altro */
 }
 
 /* ==========================================================================
@@ -163,13 +143,15 @@ body {
     border-radius: 4px;   
 }
 
+
 /* ==========================================================================
    7. NUOVO BOTTONE 3D (DIPINTO DA UIVERSE)
    ========================================================================== */
+
 .uiverse-button {
     /* Variables */
     --button_radius: 0.5em; 
-    --button_color: #e0e0e0; 
+    --button_color: #e0e0e0; /* Sfondo grigio chiaro vintage */
     --button_outline_color: #000000;
     
     font-family: 'JetBrains Mono', monospace; 
@@ -181,7 +163,6 @@ body {
     background: var(--button_outline_color);
     display: inline-block; 
     text-decoration: none; 
-    margin-left: 5px; /* Distanza calcolata dopo la barra | */
 }
 
 .button_top {
@@ -189,7 +170,7 @@ body {
     box-sizing: border-box;
     border: 1px solid var(--button_outline_color); 
     border-radius: var(--button_radius);
-    padding: 0.4em 1.2em; 
+    padding: 0.5em 1.2em; /* Padding perfetto per la lettura in linea */
     background: var(--button_color);
     color: var(--button_outline_color);
     transform: translateY(-0.2em);
@@ -198,15 +179,15 @@ body {
 
 .uiverse-button:hover .button_top {
     transform: translateY(-0.33em);
-    background: #ffffff; 
+    background: #ffffff; /* Si illumina in bianco puro al passaggio del mouse */
 }
 
 .uiverse-button:active .button_top {
-    transform: translateY(0);
+    transform: translateY(0); /* Si schiaccia totalmente al click */
 }
 
 /* ==========================================================================
-   8. 📱 RESPONSIVE (LAYOUT PER SMARTPHONE)
+   8. RESPONSIVE (LAYOUT PER SMARTPHONE)
    ========================================================================== */
 @media (max-width: 800px) {
     .layout-wrapper {
@@ -225,8 +206,7 @@ body {
     }
     
     .social-links {
-        justify-content: center; /* Centra i link e il bottone su mobile */
-        text-align: center;     
+        justify-content: center; /* Centra l'intera fila di bottoni 3D su smartphone */
     }
     
     .blog-image {
