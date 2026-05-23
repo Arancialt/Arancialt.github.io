@@ -58,6 +58,9 @@ body {
 /* ==========================================================================
    4. ELEMENTI DELLA COLONNA SINISTRA (IMMAGINE E SOCIAL)
    ========================================================================== */
+/* ==========================================================================
+   4. ELEMENTI DELLA COLONNA SINISTRA (IMMAGINE E SOCIAL)
+   ========================================================================== */
 .blog-image {
     width: 100%;
     height: auto;
@@ -72,35 +75,32 @@ body {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #000000; /* Linea di separazione in NERO */
-    text-align: left;              /* I bottoni social rimangono a sinistra sotto la foto */
+    text-align: left;              /* Allineati a sinistra sotto la foto */
+    font-family: monospace;        /* Opzionale: dà quel look da codice molto carino che c'è nella foto */
+    color: #000000;                /* Colore delle virgole in NERO */
+    font-size: 1.1rem;
+    line-height: 1.8;              /* Gestisce lo spazio se i bottoni vanno a capo */
 }
 
-/* Pulsanti dei Social */
+/* Pulsanti dei Social (Stile rettangolo grigio chiaro/bianco della foto) */
 .social-links a {
     display: inline-block;
-    position: relative;
-    margin-right: 35px; 
-    padding: 10px 20px;
-    background-color: #ffffff; 
-    color: #000000;            
-    border: 1px solid #000000; 
-    text-decoration: none;
-    font-size: 0.95rem;
-    transition: all 0.3s ease;
+    padding: 3px 8px;              /* Padding più stretto per farli sembrare piccoli blocchi */
+    background-color: #ffffff;     /* Colore grigio chiaro di sfondo come nell'immagine */
+    color: #000000;                /* Testo in NERO */
+    border: 1px solid #000000;     /* Bordino nero sottile e netto attorno al bottone */
+    text-decoration: none;         /* Rimuove la sottolineatura dei link */
+    font-size: 1rem;
+    margin: 2px 0;                 /* Piccolo spazio verticale se vanno a capo */
+    transition: background-color 0.2s ease;
 }
 
-.social-links a::after {
-    content: "👾";
-    position: absolute;
-    right: -24px;
-    top: 50%;
-    transform: translateY(-50%);
-}
+/* Rimosso completamente il vecchio modificatore ::after con l'emoji */
 
+/* Effetto al passaggio del mouse */
 .social-links a:hover {
-    background-color: #ea9b0a; 
-    color: #ffffff;            
-    border-color: #ea9b0a;
+    background-color: #ffffff;     /* Diventa bianco puro quando ci passi sopra */
+    color: #000000;                /* Il testo resta nero */
 }
 
 /* ==========================================================================
