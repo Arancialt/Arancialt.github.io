@@ -7,7 +7,6 @@
    1. IMPOSTAZIONI GENERALI E RESET
    ========================================================================== */
 body {
-    /* Impostato JetBrains Mono come font UNICO per tutto il sito */
     font-family: 'JetBrains Mono', monospace;
     background-color: #f9f9f9;
     color: #000000; /* Testo generale del sito in NERO */
@@ -44,7 +43,7 @@ body {
     flex: 0.9;
     min-width: 0;
     text-align: center;
-    margin-top: 74px; /* Allineamento millimetrico all'immagine */
+    margin-top: 74px; /* Allineamento millimetrico alla cima dell'immagine */
 }
 
 /* ==========================================================================
@@ -78,13 +77,16 @@ body {
     padding-top: 20px;
     border-top: 1px solid #000000; /* Linea di separazione in NERO */
     text-align: left;              
-    color: #000000;                /* Colore delle virgole in NERO */
+    color: #000000;                /* Colore delle virgole e della barra | */
     font-size: 1.1rem;
-    line-height: 1.8;              
+    display: flex;                 /* Mette in linea i testi e il bottone 3D */
+    align-items: center;           /* Allinea verticalmente i link piatti e il bottone */
+    flex-wrap: wrap;               /* Evita problemi andando a capo su schermi piccoli */
+    gap: 6px;                      /* Distanza uniforme tra elementi e testo */
 }
 
-/* Pulsanti dei Social (Stile immagine_4.png) */
-.social-links a {
+/* Pulsanti dei Social standard (instagram, github, spotify) */
+.social-links .social-link-standard {
     display: inline-block;
     padding: 3px 8px;              
     background-color: #e0e0e0;     /* Sfondo grigio chiaro */
@@ -92,14 +94,12 @@ body {
     border: 1px solid #000000;     
     text-decoration: none;         
     font-size: 1rem;
-    margin: 2px 0;                 
     transition: background-color 0.2s ease;
 }
 
-/* Effetto al passaggio del mouse */
-.social-links a:hover {
+/* Effetto al passaggio del mouse sui social standard */
+.social-links .social-link-standard:hover {
     background-color: #ffffff;     /* Diventa bianco puro */
-    color: #000000;                
 }
 
 /* ==========================================================================
@@ -153,7 +153,60 @@ body {
 }
 
 /* ==========================================================================
-   6. RESPONSIVE (LAYOUT PER SMARTPHONE)
+   6. PAGINA ABOUT ME
+   ========================================================================== */
+.gif-about-me {
+    display: block;       
+    margin: 30px auto;    
+    max-width: 100%;      
+    height: auto;         
+    border-radius: 4px;   
+}
+
+/* ==========================================================================
+   7. NUOVO BOTTONE 3D (DIPINTO DA UIVERSE)
+   ========================================================================== */
+.uiverse-button {
+    /* Variables */
+    --button_radius: 0.5em; 
+    --button_color: #e0e0e0; 
+    --button_outline_color: #000000;
+    
+    font-family: 'JetBrains Mono', monospace; 
+    font-size: 14px; 
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--button_radius);
+    background: var(--button_outline_color);
+    display: inline-block; 
+    text-decoration: none; 
+    margin-left: 5px; /* Distanza calcolata dopo la barra | */
+}
+
+.button_top {
+    display: block;
+    box-sizing: border-box;
+    border: 1px solid var(--button_outline_color); 
+    border-radius: var(--button_radius);
+    padding: 0.4em 1.2em; 
+    background: var(--button_color);
+    color: var(--button_outline_color);
+    transform: translateY(-0.2em);
+    transition: transform 0.1s ease;
+}
+
+.uiverse-button:hover .button_top {
+    transform: translateY(-0.33em);
+    background: #ffffff; 
+}
+
+.uiverse-button:active .button_top {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   8. 📱 RESPONSIVE (LAYOUT PER SMARTPHONE)
    ========================================================================== */
 @media (max-width: 800px) {
     .layout-wrapper {
@@ -172,23 +225,11 @@ body {
     }
     
     .social-links {
+        justify-content: center; /* Centra i link e il bottone su mobile */
         text-align: center;     
     }
     
     .blog-image {
         margin: 10px auto 20px auto;
     }
-}
-
-/* 
-ABOUT ME
-*/
-
-.gif1 {
-    max-width: 600px;       /* Regola questa misura per decidere quanto deve essere grande */
-    width: 100%;            /* La rende fluida così non sforma su mobile */
-    height: auto;
-    display: block;
-    margin: 20px auto;      /* Centra la GIF e le dà un po' di spazio sopra e sotto */
-    border-radius: 4px;  <- Opzionale: togli il commento se vuoi smussare gli angoli della GIF */
 }

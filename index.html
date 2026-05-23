@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,43 +12,59 @@
     <!-- Collegamento al CSS -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
+
 <body>
 
     <div class="container">
 
         <!-- Il guscio principale per il layout orizzontale -->
         <div class="layout-wrapper">
-            
+
             <!-- COLONNA SINISTRA (Titolo centrato sulla foto, Immagine e Social) -->
             <div class="colonna-sinistra">
                 <h1 class="center-image-title">lafogio</h1>
                 <img src="assets/immagini/sunset.jpg" alt="Copertina del mio blog" class="blog-image">
-                
+
                 <div class="social-links">
-                    <a href="https://instagram.com/g.laforenza" target="_blank" rel="noopener">instagram</a>, 
-                    <a href="https://github.com/Arancialt" target="_blank" rel="noopener">github</a>, 
-                    <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener">spotify</a> |  
-                    <a href="about.html">about me</a>
+                    <a href="https://instagram.com/g.laforenza" target="_blank" rel="noopener"
+                        class="social-link-standard">instagram</a>,
+                    <a href="https://github.com/Arancialt" target="_blank" rel="noopener"
+                        class="social-link-standard">github</a>,
+                    <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener"
+                        class="social-link-standard">spotify</a> |
+
+                    <!-- Struttura corretta per il bottone 3D dell'About Me -->
+                    <a href="about.html" class="uiverse-button">
+                        <span class="button_top">about me</span>
+                    </a>
                 </div>
-               
+
 
             </div>
 
             <!-- COLONNA DESTRA (Musica e descrizione) -->
             <div class="colonna-destra">
-                
+
                 <!-- Box Musica -->
                 <div class="music-box">
                     <p class="music-box-title">Music</p>
-                    
+
                     <div class="spotify-player">
                         <p class="spotify-title">My current favourite track</p>
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3YVTmWQvPWVSktD0DhtSYQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/track/3YVTmWQvPWVSktD0DhtSYQ?utm_source=generator&theme=0"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     </div>
-                    
+
                     <div class="spotify-player">
                         <p class="spotify-title">My current favourite playlist</p>
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7ckLkG38SS1w2SLi9QWE3b?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px"
+                            src="https://open.spotify.com/embed/playlist/7ckLkG38SS1w2SLi9QWE3b?utm_source=generator&theme=0"
+                            width="100%" height="152" frameBorder="0" allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy"></iframe>
                     </div>
                 </div>
 
@@ -59,4 +76,5 @@
     </div> <!-- Fine container -->
 
 </body>
+
 </html>
