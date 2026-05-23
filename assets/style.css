@@ -153,7 +153,7 @@ body {
 }
 
 /* ==========================================================================
-   6. 📱 RESPONSIVE (LAYOUT PER SMARTPHONE)
+   6. RESPONSIVE (LAYOUT PER SMARTPHONE)
    ========================================================================== */
 @media (max-width: 800px) {
     .layout-wrapper {
@@ -178,4 +178,17 @@ body {
     .blog-image {
         margin: 10px auto 20px auto;
     }
+}
+
+/* 
+ABOUT ME
+*/
+
+.gif1 {
+    max-width: 600px;       /* Regola questa misura per decidere quanto deve essere grande */
+    width: 100%;            /* La rende fluida così non sforma su mobile */
+    height: auto;
+    display: block;
+    margin: 20px auto;      /* Centra la GIF e le dà un po' di spazio sopra e sotto */
+    border-radius: 4px;  <- Opzionale: togli il commento se vuoi smussare gli angoli della GIF */
 }
