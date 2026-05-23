@@ -1,120 +1,177 @@
+/* ==========================================================================
+   1. IMPOSTAZIONI GENERALI E RESET
+   ========================================================================== */
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: #f9f9f9;
-    color: #333;
+    color: #000000; /* Testo generale del sito in NERO */
     margin: 0;
     padding: 0;
 }
 
+/* Il contenitore principale che racchiude tutto il sito */
 .container {
-    max-width: 800px;
+    max-width: 1000px; /* Larghezza ideale per il layout a due colonne */
     margin: 50px auto;
-    text-align: center;
     padding: 20px;
+    box-sizing: border-box;
 }
 
-h1 {
+/* ==========================================================================
+   2. TITOLO PRINCIPALE (OPZIONE A)
+   ========================================================================== */
+.main-title {
     font-size: 2.5rem;
-    color: #111;
+    color: #000000;     /* Titolo in NERO */
+    text-align: center; /* Centrato rispetto alla pagina */
+    margin-top: 0;
+    margin-bottom: 40px; /* Spazio vuoto prima dell'inizio delle colonne */
 }
 
+/* ==========================================================================
+   3. IL MOTORE DEL LAYOUT (FLEXBOX)
+   ========================================================================== */
+/* Questo guscio affianca la colonna sinistra e la colonna destra su desktop */
+.layout-wrapper {
+    display: flex;
+    flex-direction: row;       /* Disposizione orizzontale */
+    justify-content: space-between; /* Distribuisce lo spazio tra i due blocchi */
+    align-items: flex-start;   /* Allinea l'immagine e il box musica perfettamente in alto */
+    gap: 50px;                 /* Distanza tra colonna sinistra e destra */
+    width: 100%;
+}
+
+/* Proporzioni delle colonne */
+.colonna-sinistra {
+    flex: 1.1;
+    min-width: 0;
+    text-align: center;
+}
+
+.colonna-destra {
+    flex: 0.9;
+    min-width: 0;
+    text-align: center;
+}
+
+/* ==========================================================================
+   4. ELEMENTI DELLA COLONNA SINISTRA (IMMAGINE E SOCIAL)
+   ========================================================================== */
 .blog-image {
-    max-width: 100%;
+    width: 100%;
     height: auto;
-    border-radius: 8px; /* Smussa gli angoli dell'immagine */
-    margin: 20px 0;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Aggiunge un'ombra leggera */
+    border-radius: 8px;
+    margin: 0 0 20px 0; /* Il margine superiore è a 0 per allinearsi alla musica */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
 }
 
-.descrizione {
-    font-size: 1.1rem;
-    color: #666;
-    line-height: 1.6;
-}
-
+/* Contenitore dei social */
 .social-links {
     margin-top: 30px;
     padding-top: 20px;
-    border-top: 1px solid #eee; /* Una riga sottile di separazione */
-    text-align: center; /* Centra tutto il blocco dei social */
+    border-top: 1px solid #000000; /* Linea di separazione in NERO */
 }
 
-.social-links p {
-    font-size: 0.9rem;
-    color: #888;
-    margin-bottom: 15px;
-}
-
+/* Bottoni dei link social */
 .social-links a {
     display: inline-block;
     position: relative;
-    
-    /* Spazio a destra del bottone per fare posto all'emoji */
     margin-right: 30px; 
-    
     padding: 10px 20px;
-    background-color: #fcfcfc; /* Sfondo bianco */
-    color: #000000; /* Testo nero */
-    text-decoration: none; /* Rimuove la sottolineatura */
-    border-radius: 0px; /* Bottoni squadrati */
+    background-color: #ffffff; /* Sfondo del bottone BIANCO */
+    color: #000000;            /* Testo del bottone NERO */
+    border: 1px solid #000000; /* Bordino nero minimale */
+    text-decoration: none;
     font-size: 0.95rem;
-    transition: background-color 0.3s ease; /* Effetto fluido al passaggio del mouse */
+    transition: all 0.3s ease;
 }
 
-/* Posizioniamo l'emoji fuori da OGNI bottone */
+/* L'emoji decorativa di fianco ai bottoni */
 .social-links a::after {
     content: "👾";
     position: absolute;
-    right: -22px; /* Sposta l'emoji esattamente nello spazio vuoto a destra */
+    right: -22px;
     top: 50%;
-    transform: translateY(-50%); /* Centra l'emoji verticalmente rispetto al bottone */
-    pointer-events: none; /* Rende l'emoji non cliccabile */
+    transform: translateY(-50%);
 }
 
-/* Cambia colore quando l'utente passa il mouse sopra il bottone */
+/* Effetto quando passi il mouse sopra i bottoni */
 .social-links a:hover {
-    background-color: #ea9b0a; /* Diventa color oro */
+    background-color: #ea9b0a; /* Il bottone si illumina in ORO */
+    color: #ffffff;            /* Il testo diventa BIANCO per leggibilità */
+    border-color: #ea9b0a;
 }
 
-/* Il grande contenitore bianco che racchiude tutta la musica */
+/* ==========================================================================
+   5. ELEMENTI DELLA COLONNA DESTRA (BOX MUSICA E DESCRIZIONE)
+   ========================================================================== */
+/* Il box bianco che racchiude i player di Spotify */
 .music-box {
-    margin: 40px auto;
+    width: 100%;
     padding: 25px;
-    background-color: #ffffff; /* Box bianco per staccare dallo sfondo */
-    border: 1px solid #569212; /* Cornice color Ottanio della tua palette */
-    border-radius: 12px;       /* Angoli smussati coerenti con il sito */
-    max-width: 500px;          /* Larghezza massima del box */
+    background-color: #ffffff; 
+    border: 1px solid #31818C; /* Mantiene la cornice color Ottanio */
+    border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    margin-bottom: 30px;
 }
 
-/* Il titolo principale "Music" in alto */
+/* Titolo principale "Music" */
 .music-box-title {
     font-size: 1.2rem;
-    color: #22244E;            /* Blu Notte Scuro */
+    color: #22244E; /* Protetto in Blu Notte Scuro */
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
     margin-top: 0;
-    margin-bottom: 25px;       /* Spazio prima dei player */
+    margin-bottom: 25px;
 }
 
-/* I singoli blocchi dei player Spotify */
+/* Singoli blocchi dedicati ai player */
 .spotify-player {
-    margin-bottom: 25px;       /* Spazio tra la traccia e la playlist */
+    margin-bottom: 25px;
 }
 
-/* Rimuove il margine dall'ultimo player per non creare spazio vuoto sotto */
 .spotify-player:last-child {
-    margin-bottom: 0;
+    margin-bottom: 0; /* Rimuove lo spazio extra sotto l'ultimo player */
 }
 
-/* Sottotitoli ("My current favourite...") */
+/* Sottotitoli dei player ("My current favourite...") */
 .spotify-title {
     font-size: 0.85rem;
-    color: #000000;            /* Ottanio */
+    color: #31818C; /* Protetto in color Ottanio */
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
     font-weight: 600;
-    text-align: center;
+}
+
+/* Testo di descrizione fuori dal box musica */
+.descrizione {
+    font-size: 1.1rem;
+    color: #000000; /* Testo "Work in progress" in NERO */
+    line-height: 1.6;
+    margin-top: 20px;
+}
+
+/* ==========================================================================
+   6. RESPONSIVE (LAYOUT PER SMARTPHONE)
+   ========================================================================== */
+/* Quando lo schermo è più stretto di 800px, smonta l'orizzontale e impila tutto */
+@media (max-width: 800px) {
+    .layout-wrapper {
+        flex-direction: column; /* Cambia la direzione in verticale */
+        gap: 40px;
+    }
+    
+    .colonna-sinistra, .colonna-destra {
+        width: 100%;
+        flex: none;
+        text-align: center; /* Forza la centratura totale su mobile */
+    }
+    
+    .blog-image {
+        margin: 20px auto;
+    }
 }
