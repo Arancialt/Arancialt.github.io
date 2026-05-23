@@ -9,49 +9,50 @@ body {
     padding: 0;
 }
 
-/* Il contenitore principale che racchiude tutto il sito */
 .container {
-    max-width: 1000px; /* Larghezza ideale per il layout a due colonne */
+    max-width: 1000px;
     margin: 50px auto;
     padding: 20px;
     box-sizing: border-box;
 }
 
 /* ==========================================================================
-   2. TITOLO PRINCIPALE (OPZIONE A)
+   2. IL MOTORE DEL LAYOUT (FLEXBOX A DUE COLONNE)
    ========================================================================== */
-.main-title {
-    font-size: 2.5rem;
-    color: #000000;     /* Titolo in NERO */
-    text-align: center; /* Centrato rispetto alla pagina */
-    margin-top: 0;
-    margin-bottom: 40px; /* Spazio vuoto prima dell'inizio delle colonne */
-}
-
-/* ==========================================================================
-   3. IL MOTORE DEL LAYOUT (FLEXBOX)
-   ========================================================================== */
-/* Questo guscio affianca la colonna sinistra e la colonna destra su desktop */
 .layout-wrapper {
     display: flex;
-    flex-direction: row;       /* Disposizione orizzontale */
-    justify-content: space-between; /* Distribuisce lo spazio tra i due blocchi */
-    align-items: flex-start;   /* Allinea l'immagine e il box musica perfettamente in alto */
-    gap: 50px;                 /* Distanza tra colonna sinistra e destra */
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;  /* CORRETTO: Riporta l'immagine e la musica ad allinearsi in ALTO */
+    gap: 50px;
     width: 100%;
 }
 
-/* Proporzioni delle colonne */
 .colonna-sinistra {
     flex: 1.1;
     min-width: 0;
-    text-align: center;
+    text-align: center;       /* Centra perfettamente il titolo e l'immagine nella colonna */
 }
 
 .colonna-destra {
     flex: 0.9;
     min-width: 0;
     text-align: center;
+    /* TRUCCO: Questo spazio spinge in giù il box musica esattamente quanto il titolo spinge la foto! */
+    margin-top: 74px; 
+}
+
+/* ==========================================================================
+   3. TITOLO CENTRATO RISPETTO ALL'IMMAGINE
+   ========================================================================== */
+.center-image-title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: #000000;
+    text-align: center;       /* Centratura sopra l'immagine */
+    margin-top: 0;
+    margin-bottom: 20px;      /* Spazio fisso tra il titolo e la foto sotto */
+    line-height: 1;           /* Mantiene l'altezza del testo compatta e prevedibile */
 }
 
 /* ==========================================================================
@@ -61,66 +62,65 @@ body {
     width: 100%;
     height: auto;
     border-radius: 8px;
-    margin: 0 0 20px 0; /* Il margine superiore è a 0 per allinearsi alla musica */
+    margin: 0 0 20px 0;
     box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    display: block;
 }
 
-/* Contenitore dei social */
+/* Sezione Link Social */
 .social-links {
     margin-top: 30px;
     padding-top: 20px;
     border-top: 1px solid #000000; /* Linea di separazione in NERO */
+    text-align: left;              /* I bottoni social rimangono a sinistra sotto la foto */
 }
 
-/* Bottoni dei link social */
+/* Pulsanti dei Social */
 .social-links a {
     display: inline-block;
     position: relative;
-    margin-right: 30px; 
+    margin-right: 35px; 
     padding: 10px 20px;
-    background-color: #ffffff; /* Sfondo del bottone BIANCO */
-    color: #000000;            /* Testo del bottone NERO */
-    border: 1px solid #000000; /* Bordino nero minimale */
+    background-color: #ffffff; 
+    color: #000000;            
+    border: 1px solid #000000; 
     text-decoration: none;
     font-size: 0.95rem;
     transition: all 0.3s ease;
 }
 
-/* L'emoji decorativa di fianco ai bottoni */
 .social-links a::after {
     content: "👾";
     position: absolute;
-    right: -22px;
+    right: -24px;
     top: 50%;
     transform: translateY(-50%);
 }
 
-/* Effetto quando passi il mouse sopra i bottoni */
 .social-links a:hover {
-    background-color: #ea9b0a; /* Il bottone si illumina in ORO */
-    color: #ffffff;            /* Il testo diventa BIANCO per leggibilità */
+    background-color: #ea9b0a; 
+    color: #ffffff;            
     border-color: #ea9b0a;
 }
 
 /* ==========================================================================
    5. ELEMENTI DELLA COLONNA DESTRA (BOX MUSICA E DESCRIZIONE)
    ========================================================================== */
-/* Il box bianco che racchiude i player di Spotify */
 .music-box {
     width: 100%;
     padding: 25px;
     background-color: #ffffff; 
-    border: 1px solid #31818C; /* Mantiene la cornice color Ottanio */
+    border: 1px solid #31818C; 
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     box-sizing: border-box;
     margin-bottom: 30px;
+    text-align: center;
 }
 
-/* Titolo principale "Music" */
 .music-box-title {
     font-size: 1.2rem;
-    color: #22244E; /* Protetto in Blu Notte Scuro */
+    color: #22244E; 
     text-transform: uppercase;
     letter-spacing: 1px;
     font-weight: 700;
@@ -128,50 +128,55 @@ body {
     margin-bottom: 25px;
 }
 
-/* Singoli blocchi dedicati ai player */
 .spotify-player {
     margin-bottom: 25px;
 }
 
 .spotify-player:last-child {
-    margin-bottom: 0; /* Rimuove lo spazio extra sotto l'ultimo player */
+    margin-bottom: 0;
 }
 
-/* Sottotitoli dei player ("My current favourite...") */
 .spotify-title {
     font-size: 0.85rem;
-    color: #31818C; /* Protetto in color Ottanio */
+    color: #31818C; 
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
     font-weight: 600;
 }
 
-/* Testo di descrizione fuori dal box musica */
 .descrizione {
     font-size: 1.1rem;
-    color: #000000; /* Testo "Work in progress" in NERO */
+    color: #000000; 
     line-height: 1.6;
     margin-top: 20px;
+    text-align: center;
 }
 
 /* ==========================================================================
-   6. RESPONSIVE (LAYOUT PER SMARTPHONE)
+   6. 📱 RESPONSIVE (LAYOUT PER SMARTPHONE)
    ========================================================================== */
-/* Quando lo schermo è più stretto di 800px, smonta l'orizzontale e impila tutto */
 @media (max-width: 800px) {
     .layout-wrapper {
-        flex-direction: column; /* Cambia la direzione in verticale */
-        gap: 40px;
+        flex-direction: column;
+        gap: 30px;
     }
     
     .colonna-sinistra, .colonna-destra {
         width: 100%;
         flex: none;
-        text-align: center; /* Forza la centratura totale su mobile */
+        text-align: center;
+    }
+
+    .colonna-destra {
+        margin-top: 0; /* Azzera il trucco dell'allineamento quando si va in verticale */
+    }
+    
+    .social-links {
+        text-align: center;     /* Centra i bottoni social su mobile */
     }
     
     .blog-image {
-        margin: 20px auto;
+        margin: 10px auto 20px auto;
     }
 }
