@@ -6,37 +6,54 @@
     <title>lafogio's</title>
 
     <!-- Icona nella scheda del browser -->
-     <link rel="icon" type="image/png" href="assets/immagini/favicon.png">
+    <link rel="icon" type="image/png" href="assets/immagini/favicon.png">
 
+    <!-- Collegamento al CSS -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
 
     <div class="container">
-        <h1>My website.</h1>
-        
-        <img src="assets/immagini/sunset.jpg" alt="Copertina del mio blog" class="blog-image">
 
-        <!-- Codice spotify -->
-        <div class="spotify-player">
-            <p class="spotify-title">My current favourite track</p>
+        <!-- Il guscio per il layout orizzontale disegnato da te -->
+        <div class="layout-wrapper">
+            
+            <!-- COLONNA SINISTRA (Titolo, Immagine e Social) -->
+            <div class="colonna-sinistra">
+                <h1>lafogio</h1>
+                <img src="assets/immagini/sunset.jpg" alt="Copertina del mio blog" class="blog-image">
+                
+                <div class="social-links">
+                    <a href="https://instagram.com/g.laforenza" target="_blank" rel="noopener">Instagram</a>
+                    <a href="https://github.com/Arancialt" target="_blank" rel="noopener">GitHub</a>
+                    <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener">Spotify</a>
+                </div> 
+            </div>
 
-            <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3YVTmWQvPWVSktD0DhtSYQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        </div>
+            <!-- COLONNA DESTRA (Musica) -->
+            <div class="colonna-destra">
+                
+                <!-- Box Musica -->
+                <div class="music-box">
+                    <p class="music-box-title">Music</p>
+                    
+                    <div class="spotify-player">
+                        <p class="spotify-title">My current favourite track</p>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/3YVTmWQvPWVSktD0DhtSYQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                    
+                    <div class="spotify-player">
+                        <p class="spotify-title">My current favourite playlist</p>
+                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/playlist/7ckLkG38SS1w2SLi9QWE3b?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                    </div>
+                </div>
 
-        <!-- Sezione link social -->
-        <div class="social-links">
+                <p class="descrizione"> Work in progress... </p>
+            </div>
 
-            <!-- target="_blank" serve per aprire il link in una nuova scheda del browser -->
-            <!-- rel="noopener" è una misura di sicurezza obbligatoria quando si usa target="_blank" -->
-            <a href="https://instagram.com/g.laforenza" target="_blank" rel="noopener">Instagram</a>
-            <a href="https://github.com/Arancialt" target="_blank" rel="noopener">GitHub</a>
-            <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener">Spotify</a>
-        </div> 
+        </div> <!-- Fine layout-wrapper -->
 
-        <p class="descrizione"> Work in progress... </p>
-
-    </div>
+    </div> <!-- Fine container -->
 
 </body>
 </html>
