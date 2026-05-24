@@ -143,6 +143,15 @@ body {
     border-radius: 4px;   
 }
 
+.credits {
+    font-size: 0.75rem;       /* Rende il testo molto piccolo */
+    color: #888888;           /* Un grigio chiaro e leggero, non invasivo */
+    text-align: center;       /* Lo centra perfettamente sotto la GIF */
+    margin-top: -15px;        /* Lo avvicina alla GIF riducendo lo spazio vuoto */
+    margin-bottom: 30px;      /* Spazio rispetto alla linea nera sotto */
+    opacity: 0.8;             /* Gli dà una leggera trasparenza per farlo apparire ancora più delicato */
+}
+
 
 /* ==========================================================================
    7. NUOVO BOTTONE 3D (DIPINTO DA UIVERSE)
