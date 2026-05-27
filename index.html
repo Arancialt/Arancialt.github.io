@@ -6,10 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>lafogio's</title>
 
-    <!-- Icona nella scheda del browser -->
     <link rel="icon" type="image/png" href="assets/immagini/favicon.png">
 
-    <!-- Collegamento al CSS -->
     <link rel="stylesheet" href="assets/style.css">
 </head>
 
@@ -17,53 +15,42 @@
 
     <div class="container">
 
-        <!-- Il guscio principale per il layout orizzontale -->
         <div class="layout-wrapper">
 
-            <!-- COLONNA SINISTRA (Titolo centrato sulla foto, Immagine e Social) -->
             <div class="colonna-sinistra">
                 <h1 class="center-image-title">Giovanni Laforenza</h1>
                 <img src="assets/immagini/sunset.jpg" alt="Copertina del mio blog" class="blog-image">
 
                 <div class="social-links">
-                    <!-- Instagram 3D -->
                     <a href="https://instagram.com/g.laforenza" target="_blank" rel="noopener" class="uiverse-button">
                         <span class="button_top">instagram</span>
                     </a>,
 
-                    <!-- GitHub 3D -->
                     <a href="https://github.com/Arancialt" target="_blank" rel="noopener" class="uiverse-button">
                         <span class="button_top">github</span>
                     </a>,
 
-                    <!-- Spotify 3D -->
-                    <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener"
-                        class="uiverse-button">
+                    <a href="https://open.spotify.com/user/giovinsww?si=ec167fd5814a4b13" target="_blank" rel="noopener" class="uiverse-button">
                         <span class="button_top">spotify</span>
                     </a> | 
 
-                    <!-- About Me 3D -->
                     <a href="about.html" class="uiverse-button">
                         <span class="button_top">about me</span>
                     </a>
                 </div>
-
-
             </div>
 
-            <!-- COLONNA DESTRA (Musica e descrizione) -->
             <div class="colonna-destra">
 
-                <!-- Box Musica -->
                 <div class="music-box">
                     <p class="music-box-title">Music</p>
 
                     <div class="spotify-player">
                         <p class="spotify-title">My current favourite track</p>
                         <iframe data-testid="embed-iframe" style="border-radius:12px"
-                            src="https://open.spotify.com/embed/track/3YVTmWQvPWVSktD0DhtSYQ?utm_source=generator&theme=0"
-                            width="100%" height="152" frameBorder="0" allowfullscreen=""
-                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            src="https://open.spotify.com/embed/track/4zgHtuasZkiZu1caZwxF5P?utm_source=generator" 
+                            width="100%" height="352" frameBorder="0" allowfullscreen="" 
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                             loading="lazy"></iframe>
                     </div>
 
@@ -77,13 +64,67 @@
                     </div>
                 </div>
 
-                <p class="descrizione">Work in progress...</p>
-            </div>
+                <div class="album-box">
+                    <p class="music-box-title">My album suggestions</p>
 
-        </div> <!-- Fine layout-wrapper -->
+                    <div class="carousel-container">
 
-    </div> <!-- Fine container -->
+                        <div class="album-card active">
+                            <img src="/assets/immagini/Jimi-Hendrix-Band-Of-Gypsys-album-cover.jpg" class="album-cover" alt="Band of Gypsys">
+                            <div class="album-info">
+                                <h3 class="album-title">Band of Gypsys</h3>
+                                <p class="album-artist">Jimi Hendrix</p>
+                                <p class="album-desc"></p>
+                            </div>
+                        </div>
+
+                        </div> <div class="carousel-controls">
+                        <button id="prevBtn" class="uiverse-button">
+                            <span class="button_top">← Prev</span>
+                        </button>
+                        <button id="nextBtn" class="uiverse-button">
+                            <span class="button_top">Next →</span>
+                        </button>
+                    </div>
+                </div> <p class="descrizione">Work in progress...</p>
+                
+            </div> </div> </div> <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll('.album-card');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            let currentIndex = 0;
+
+            function showCard(index) {
+                // Se non ci sono card o ne è rimasta solo una attiva (perché le altre sono commentate) ferma la funzione
+                if (cards.length <= 1) return;
+
+                // Rimuove la classe attiva da tutte le card
+                cards.forEach(card => card.classList.remove('active'));
+
+                // Gestione del loop infinito del carosello
+                if (index >= cards.length) {
+                    currentIndex = 0;
+                } else if (index < 0) {
+                    currentIndex = cards.length - 1;
+                } else {
+                    currentIndex = index;
+                }
+
+                // Mostra la card corrente
+                cards[currentIndex].classList.add('active');
+            }
+
+            // Event Listeners per i bottoni
+            nextBtn.addEventListener('click', () => {
+                showCard(currentIndex + 1);
+            });
+
+            prevBtn.addEventListener('click', () => {
+                showCard(currentIndex - 1);
+            });
+        });
+    </script>
 
 </body>
-
 </html>

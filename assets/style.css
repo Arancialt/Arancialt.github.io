@@ -22,28 +22,32 @@ body {
 }
 
 /* ==========================================================================
-   2. IL MOTORE DEL LAYOUT (FLEXBOX A DUE COLONNE)
+   2. IL MOTORE DEL LAYOUT (FLEXBOX A DUE COLONNE CON COLONNA FISSA)
    ========================================================================== */
 .layout-wrapper {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: flex-start;  
-    gap: 50px;
+    gap: 60px; /* Aumentato leggermente il distacco per dare più aria alle colonne */
     width: 100%;
 }
 
 .colonna-sinistra {
-    flex: 1.1;
+    flex: 0.75; /* Ridotto: ora occupa meno spazio rispetto a prima */
     min-width: 0;
-    text-align: center;       
+    text-align: center; 
+    
+    /* Rende la colonna sinistra fissa durante lo scroll */
+    position: sticky;
+    top: 50px; 
 }
 
 .colonna-destra {
-    flex: 0.9;
+    flex: 1.25; /* Aumentato: prende lo spazio guadagnato dalla sidebar */
     min-width: 0;
     text-align: center;
-    margin-top: 74px; /* Allineamento millimetrico alla cima dell'immagine */
+    margin-top: 50px; /* Abbassato leggermente per allinearsi alla nuova proporzione */
 }
 
 /* ==========================================================================
@@ -195,9 +199,6 @@ body {
     transform: translateY(0); /* Si schiaccia totalmente al click */
 }
 
-/* ==========================================================================
-   8. RESPONSIVE (LAYOUT PER SMARTPHONE)
-   ========================================================================== */
 @media (max-width: 800px) {
     .layout-wrapper {
         flex-direction: column;
@@ -210,15 +211,101 @@ body {
         text-align: center;
     }
 
+    .colonna-sinistra {
+        /* Disattiva l'effetto bloccato su smartphone, altrimenti coprirebbe lo schermo */
+        position: static; 
+    }
+
     .colonna-destra {
         margin-top: 0; 
     }
     
     .social-links {
-        justify-content: center; /* Centra l'intera fila di bottoni 3D su smartphone */
+        justify-content: center; 
     }
     
     .blog-image {
         margin: 10px auto 20px auto;
     }
+}
+
+/* ==========================================================================
+   9. SEZIONE ALBUM CAROUSEL
+   ========================================================================== */
+.album-box {
+    width: 100%;
+    padding: 25px;
+    background-color: #ffffff; 
+    border: 1px solid #31818C; 
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    box-sizing: border-box;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    min-height: 280px; /* Evita il saltellamento del layout al cambio album */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Nasconde le card non attive */
+.album-card {
+    display: none;
+    width: 100%;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Mostra solo la card attiva */
+.album-card.active {
+    display: block;
+}
+
+.album-cover {
+    width: 180px;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    margin-bottom: 15px;
+}
+
+.album-info {
+    margin-bottom: 20px;
+}
+
+.album-title {
+    font-size: 1.1rem;
+    color: #22244E;
+    margin: 5px 0;
+    font-weight: 700;
+}
+
+.album-artist {
+    font-size: 0.9rem;
+    color: #31818C;
+    margin: 0;
+    font-weight: 500;
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+/* Rende i bottoni nativi simili a tag 'a' nel flusso */
+.carousel-controls .uiverse-button {
+    outline: none;
+}
+
+/* Semplice animazione di transizione */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
 }
